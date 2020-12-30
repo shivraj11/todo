@@ -1,0 +1,27 @@
+<div class="card col-6 offset-3" >
+    <h4 class="card-header">Login</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="login()">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" formControlName="email" class="form-control" [errorInputValid]="form.get('email')">
+                <div errorMessages [control]="form.get('email')"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control"
+                    [errorInputValid]="form.get('password')">
+                <div errorMessages [control]="form.get('password')"></div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" [errorFormValid]="form" type="submit">
+                    Login
+                </button>
+                <a routerLink="/register" class="btn btn-link">Register</a>
+            </div>
+        </form>
+
+    </div>
+    <ngx-spinner></ngx-spinner>
+</div>

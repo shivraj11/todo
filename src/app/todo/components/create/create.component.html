@@ -1,0 +1,37 @@
+<div class="card col-6 offset-3 mt-4">
+    <h4 class="card-header">Add-Task</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="save()">
+            <div class="form-group">
+                <label for="taskName">Task Name</label>
+                <input type="text" id ="taskName" formControlName="taskName" class="form-control"
+                    [errorInputValid]="form.get('taskName')">
+                <div errorMessages [control]="form.get('taskName')"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="markComplete">Mark Complete</label>
+              <input type="checkbox" id="markComplete" formControlName="complete" class="ml-2">
+          </div>
+
+            <div class="form-group">
+                <label for="taskDescription">Task Description</label>
+                <textarea type="text" id="taskDescription" formControlName="taskDescription" class="form-control"
+                    cols="30" rows="10" [errorInputValid]="form.get('taskDescription')"></textarea>
+                <div errorMessages [control]="form.get('taskDescription')"></div>
+
+            </div>
+
+
+
+            <div class="form-group">
+                <button class="btn btn-primary" [errorFormValid]="form" type="submit">
+                    Save
+                </button>
+                <a routerLink='/home' class="btn btn-link">Cancel</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+<ngx-spinner></ngx-spinner>
